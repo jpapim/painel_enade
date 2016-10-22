@@ -1,0 +1,81 @@
+<input type="hidden" id="urlPagination" value="" />
+<span class="pagedisplay">
+    Exibindo <?= ($this->lastItemNumber - $this->firstItemNumber + 1) ?> itens de um total de <?= $this->totalItemCount ?>
+</span>
+
+<button type="button" class="btn btn-primary next">Exibir mais itens</button>
+
+<script>
+    $(function () {
+        var current_page = 1;
+        var initial_count_per_page = <?= ($this->lastItemNumber - $this->firstItemNumber + 1) ?>;
+        var count_per_page = <?= ($this->lastItemNumber - $this->firstItemNumber + 1) ?>;
+        var total_items = <?= ($this->totalItemCount + 1) ?>;
+
+        $("<?= $this->divData ?> button.btn.next,<?= $this->divData ?> button.btn.prev,<?= $this->divData ?> button.btn.last,<?= $this->divData ?> button.btn.first").off().on('click', function () {
+            count_per_page = count_per_page + initial_count_per_page;
+
+            $.ajax({
+                type: "post",
+                dataType: "text",
+                cache: false,
+                url: '<?= $this->urlPagination ?>',
+                async: true,
+                data: {
+                    dt_inicio: $('#dt_inicio').val(),
+                    dt_fim: $('#dt_fim').val(),
+                    count_per_page: count_per_page,
+                    current_page: current_page,
+                },
+                beforeSend: function () {
+                    $('<?= $this->divData ?>').html(
+                        '<div class="row"><div class="col-md-12 text-center"><p><img src="/assets/img/carregando.gif"><p></div></div>'
+                    );
+                },
+                success: function (data) {
+                    $('<?= $this->divData ?>').html(data);
+                }
+            });
+        });
+
+        $("<?= $this->divData ?> .tablesorter-filter").off().on('keyup', function () {
+
+            clearTimeout($.data(this, 'timer'));
+            var wait = setTimeout(searchPagination, 1000);
+            $(this).data('timer', wait);
+        });
+
+        function searchPagination() {
+
+            var count_per_page = $('<?= $this->divData ?> .pagesize option:selected').val();
+            var filter_page = {};
+            $('<?= $this->divData ?> .tablesorter-filter').each(function () {
+                filter_page[$(this).attr('data-column')] = $(this).val();
+            });
+
+            $.ajax({
+                type: "post",
+                dataType: "text",
+                cache: false,
+                url: '<?= $this->urlPagination ?>',
+                async: true,
+                data: {
+                    dt_inicio: $('#dt_inicio').val(),
+                    dt_fim: $('#dt_fim').val(),
+                    count_per_page: count_per_page,
+                    filter_page: filter_page,
+                },
+                beforeSend: function () {
+
+                    $('<?= $this->divData ?>').html(
+                        '<div class="row"><div class="col-md-12 text-center"><p><img src="/assets/img/carregando.gif"><p></div></div>'
+                    );
+                },
+                success: function (data) {
+
+                    $('<?= $this->divData ?>').html(data);
+                }
+            });
+        }
+    });
+</script>

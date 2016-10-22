@@ -1,0 +1,48 @@
+<?php if ($this->Auth()) { ?>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="/principal">Início</a></li>
+        <li><a href="/escritorio/contatos">Contatos</a></li>
+        <li><a href="/escritorio/cadastro-compromissos">Compromissos</a></li>
+        <?php
+        #Alysson - Exibe este item de menu apenas para administradores
+        $usuario_logado = $this->Auth(); #Pega o Usuario Logado
+        if (TXT_CONST_PERFIL_ADMINISTRADOR_ADVE == $usuario_logado->id_perfil || TXT_CONST_PERFIL_ADMINISTRADOR == $usuario_logado->id_perfil) { ?>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Configurações
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/permissao/cadastro">Gerenciador de Permissões</a></li>
+                    <li><a href="/controller">Cadastro Controller</a></li>
+                    <li><a href="/action">Cadastro Action</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/usuario">Usuários</a></li>
+                    <li><a href="/perfil">Perfis</a></li>
+                </ul>
+            </li>
+        <?php } ?>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Básicos
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/nivel_escolaridade">Nível de Escolaridade</a></li>
+                <li><a href="/escritorio">Escritório</a></li>
+                <li><a href="/pessoa">Pessoa</a></li>
+                <li><a href="/pessoa_vinculo">Pessoa Vinculo</a></li>
+                <li><a href="/pessoa_fisica">Pessoa Fisica</a></li>
+                <li><a href="/pessoa_juridica">Pessoa Juridica</a></li>
+                <li><a href="/pessoa_juridica_lucro">Pessoa Juridica Lucro</a></li>
+                <li><a href="/pessoa_estrangeira">Pessoa Estrangeira</a></li>
+                <li><a href="/natureza_juridica">Natureza Juridica</a></li>
+                <li><a href="/email_2">Email_2</a></li>
+                <li><a href="/tipo_email">Tipo de Email_2</a></li>
+            </ul>
+        </li>
+
+    </ul>
+
+<?php } ?>

@@ -1,0 +1,27 @@
+<div>
+    <a href="{{BASE_URL}}" target="_blank">
+        <img src="{{BASE_URL}}/assets/img/logo/logo-menu.png" alt="ADV-e">
+    </a>
+</div>
+<div>
+    <h2>{{nomeUsuario}}, obrigado por se cadastrar no ADV-e</h2>
+</div>
+<div>
+    <br>
+    <p>Por favor, confirme o seu cadastro no ADV-e ({{email}}), clicando <a href="{{BASE_URL}}/auth/confirm-email/{{txIdentificacao}}">AQUI</a> ou no seguinte link:</p>
+    <p>
+        <a href="{{BASE_URL}}/auth/confirm-email/{{txIdentificacao}}">{{BASE_URL}}/auth/confirm-email/{{txIdentificacao}}</a>.
+    </p>
+    <br>
+    <p>Se você não se cadastrou no ADV-e, ignore esta mensagem.</p>
+    <br>
+    <p>Atenciosamente,</p>
+    <p><a href="{{BASE_URL}}" target="_blank">Equipe ADV-e</a></p>
+    <br>
+    <br>
+    <br>
+    <p>Não responda a este e-mail.</p>
+    <p>Na maioria do programas de e-mail, o endereço acima é um atalho em azul para a tela de autorização, que pode ser ativada com um clique do cursor do "mouse" sobre ele. Se isso não funcionar, o endereço eletrônico acima poderá ser copiado e colado na barra de endereços do seu navegador de internet.</p>    
+    <p>Este comunicado de serviço é obrigatório e foi enviado por e-mail para informar sobre alterações importantes em sua conta do ADV-e.</p>
+
+</div>
