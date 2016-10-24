@@ -27,7 +27,10 @@ class DisciplinaService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('disciplina')->columns([
-                
+                'id_disciplina',
+'id_curso',
+'nm_disciplina',
+
                 ]);
 
         $where = [

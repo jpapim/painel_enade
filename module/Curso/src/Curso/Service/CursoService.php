@@ -27,7 +27,10 @@ class CursoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('curso')->columns([
-                
+                'id_curso',
+'id_turno',
+'nm_curso',
+
                 ]);
 
         $where = [

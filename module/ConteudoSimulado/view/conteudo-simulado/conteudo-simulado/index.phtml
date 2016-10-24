@@ -8,44 +8,50 @@
         <div class="col-md-6 text-right">
             <?php
             if ($this->layout()->acl->hasResource($controller . '/cadastro') &&
-                    $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/cadastro')) {
+                $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/cadastro')
+            ) {
                 ?>
-            <a class="btn btn-primary" title="Adicionar novo" href="<?= $this->url('navegacao',['controller' => $controller,'action' => 'cadastro'])?>">
-                Novo 
-            </a>
+                <a class="btn btn-primary" title="Adicionar novo"
+                   href="<?= $this->url('navegacao', ['controller' => $controller, 'action' => 'cadastro']) ?>">
+                    Novo
+                </a>
                 <?php
             }
             ?>
             <span class="btn btn-default" title="Imprimir" id="imprimir-conteudo-simulado">
                 Imprimir 
             </span>
-        </div>    
+        </div>
     </div>
     <br>
+
     <div class="row" id="conteudo-simulado-pagination"></div>
     <div class="row">
-        <div class="col-md-6">            
+        <div class="col-md-6">
         </div>
         <div class="col-md-6 text-right">
             <?php
             if ($this->layout()->acl->hasResource($controller . '/cadastro') &&
-                    $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/cadastro')) {
+                $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/cadastro')
+            ) {
                 ?>
-            <a class="btn btn-primary" title="Adicionar novo" href="<?= $this->url('navegacao',['controller' => $controller,'action' => 'cadastro'])?>">
-                Novo 
-            </a>
+                <a class="btn btn-primary" title="Adicionar novo"
+                   href="<?= $this->url('navegacao', ['controller' => $controller, 'action' => 'cadastro']) ?>">
+                    Novo
+                </a>
                 <?php
             }
             ?>
             <span class="btn btn-default imprimir-conteudo-simulado" title="Imprimir">
                 Imprimir 
-            </span>            
+            </span>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="modal-conteudo-simulado-excluir">
     <input type="hidden" name="modal-conteudo-simulado-excluir-id" id="modal-conteudo-simulado-excluir-id" value="">
+
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -60,7 +66,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal" title="Cancelar">Cancelar</button>
-                <button type="button" class="btn btn-danger" id="btn-conteudo-simulado-excluir-confirm" title="Sim">Sim</button>
+                <button type="button" class="btn btn-danger" id="btn-conteudo-simulado-excluir-confirm" title="Sim">
+                    Sim
+                </button>
             </div>
         </div>
     </div>

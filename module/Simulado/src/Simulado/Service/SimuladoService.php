@@ -27,7 +27,11 @@ class SimuladoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('simulado')->columns([
-                
+                'id_simulado',
+'id_curso',
+'id_usuario',
+'ds_simulado',
+
                 ]);
 
         $where = [

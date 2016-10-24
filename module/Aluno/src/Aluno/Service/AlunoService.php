@@ -27,7 +27,13 @@ class AlunoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('aluno')->columns([
-                
+                'id_aluno',
+'id_curso',
+'id_sexo',
+'nm_aluno',
+'nr_matricula',
+'em_email',
+
                 ]);
 
         $where = [

@@ -42,6 +42,16 @@ class HtmlHelper {
         return self::botaoLink($url, 'glyphicon glyphicon-remove-sign', $attributos, 'btn-danger');
     }
 
+    public static function botaoDesativarConfirm($id, $title='Desativar', $icone_bootstrap = 'glyphicon glyphicon-off', $id = 'botaodesativar'){
+        $attributos = ['class'=>'btn-desativar btn-xs', 'id'=>$id];
+        return self::botao($id, $icone_bootstrap, $attributos, $title);
+    }
+
+    public static function botaoDesativar($url, $title='Desativar', $icone_bootstrap = 'glyphicon glyphicon-off', $id = 'botaodesativar'){
+        $attributos = ['class'=>'btn-desativar btn-xs', 'id'=>$id];
+        return self::botaoLink($url, $icone_bootstrap, $attributos, $title);
+    }
+
     public static function botaoAlterar($url) {
         $attributos = [
             'class' => 'btn-alterar btn-sm',

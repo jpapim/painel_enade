@@ -27,7 +27,12 @@ class ConteudoSimuladoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('conteudo_simulado')->columns([
-                
+                'id_conteudo_simulado',
+'id_conteudo',
+'id_simulado',
+'nr_questao',
+'nr_peso_questao',
+
                 ]);
 
         $where = [

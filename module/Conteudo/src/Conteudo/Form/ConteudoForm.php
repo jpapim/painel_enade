@@ -12,6 +12,9 @@ class ConteudoForm extends AbstractForm{
 
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('conteudoform',$this,$this->inputFilter);
+        $objForm->hidden("id")->required(false)->label("Id");  
+        $objForm->combo("id_disciplina", '\Disciplina\Service\DisciplinaService', 'id', 'nm_disciplina')->required(false)->label("Disciplina");  
+        $objForm->text("ds_conteudo")->required(false)->label("Ds conteudo");  
 
         $this->formObject = $objForm;
     }

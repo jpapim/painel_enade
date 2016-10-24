@@ -27,7 +27,9 @@ class TurnoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('turno')->columns([
-                
+                'id_turno',
+'nm_turno',
+
                 ]);
 
         $where = [

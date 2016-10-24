@@ -27,7 +27,10 @@ class ConteudoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('conteudo')->columns([
-                
+                'id_conteudo',
+'id_disciplina',
+'ds_conteudo',
+
                 ]);
 
         $where = [

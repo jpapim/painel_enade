@@ -29,8 +29,14 @@ return array(
         'Infra',
         'Principal',
         'Permissao',
+        'Aluno',
+        'Conteudo',
+        'ConteudoSimulado',
+        'Curso',
+        'Disciplina',
+        'Resultado',
         'Turno',
-        'Cidade',
+        'Simulado',
     ),
     'module_listener_options' => array(
         'module_paths' => array(

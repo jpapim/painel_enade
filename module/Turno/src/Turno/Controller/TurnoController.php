@@ -38,7 +38,11 @@ class TurnoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(nm_turno) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '1' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorTurno($filter, $camposFilter);

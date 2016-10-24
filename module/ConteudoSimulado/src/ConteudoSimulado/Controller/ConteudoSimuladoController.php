@@ -38,7 +38,11 @@ class ConteudoSimuladoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(nr_peso_questao) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '1' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorConteudoSimulado($filter, $camposFilter);

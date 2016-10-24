@@ -25,7 +25,7 @@ class LoginForm extends AbstractForm {
         $objForm->text("dt_registro")->required(false)->label("Data de Registro");
         $objForm->combo("id_usuario", '\Usuario\Service\UsuarioService', 'id', 'nm_usuario')->required(true)->label("Usuario");
         $objForm->combo("id_email", '\EmailAcesso\Service\EmailAcessoService', 'id', 'em_email')->required(true)->label("Email");
-        $objForm->combo("id_situacao", '\Situacao\Service\SituacaoService', 'id', 'nm_situacao')->required(true)->label("Situacao");
+        $objForm->combo("id_situacao", '\Situacao\Service\SituacaoService', 'id', 'nm_situacao')->required(false)->label("Situacao");
         $objForm->combo("id_perfil", '\Perfil\Service\PerfilService', 'id', 'nm_perfil')->required(true)->label("Perfil");
 
         $this->formObject = $objForm;

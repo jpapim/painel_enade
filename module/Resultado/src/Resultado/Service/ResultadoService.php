@@ -27,7 +27,11 @@ class ResultadoService extends Entity{
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('resultado')->columns([
-                
+                'id_resultado',
+'id_aluno',
+'id_conteudo_simulado',
+'cs_resposta',
+
                 ]);
 
         $where = [

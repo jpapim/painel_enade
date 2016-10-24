@@ -38,7 +38,11 @@ class ConteudoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(ds_conteudo) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '1' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorConteudo($filter, $camposFilter);

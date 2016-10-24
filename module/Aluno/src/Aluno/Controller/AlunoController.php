@@ -38,7 +38,19 @@ class AlunoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(nm_aluno) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+'1' => [
+    'filter' => "LOWER(nr_matricula) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+'2' => [
+    'filter' => "LOWER(em_email) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '3' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorAluno($filter, $camposFilter);

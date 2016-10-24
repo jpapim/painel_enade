@@ -18,7 +18,7 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="/mcnetwork-index/index" style="cursor: default">
+                    <a href="/usuario/index" style="cursor: default">
                         <?= ucwords($this->Auth()->nm_usuario); ?>    
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                 </li>
             </ul>
 
-            <?php if ($this->Auth()->id_perfil == 1) { ?>
+            <?php if ($this->Auth()->id_perfil == TXT_CONST_PERFIL_ADMINISTRADOR) { ?>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="/infra-infra" title="Botão para limpar as pastas Cache automaticamente.">

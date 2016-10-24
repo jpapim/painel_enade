@@ -38,7 +38,11 @@ class SimuladoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(ds_simulado) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '1' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorSimulado($filter, $camposFilter);

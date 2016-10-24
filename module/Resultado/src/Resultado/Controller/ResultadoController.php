@@ -38,7 +38,11 @@ class ResultadoController extends AbstractCrudController
         $filter = $this->getFilterPage();
 
         $camposFilter = [
-    '0' => NULL,
+'0' => [
+    'filter' => "LOWER(cs_resposta) LIKE ? ",
+    'mascara' => 'strtolower($value)',
+],
+    '1' => NULL,
 ];
         
         $paginator = $this->service->getPaginatorResultado($filter, $camposFilter);

@@ -4,7 +4,7 @@ $(function () {
         type: "post",
         dataType: "text",
         cache: false,
-        url: '/conteudo-simulado/index-pagination',
+        url: '/conteudo_simulado/index-pagination',
         async: true,
         data: {
         },
