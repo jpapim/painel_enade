@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JotJunior/PHP-Boleto-ZF2.git",
-                "reference": "72f156d70371b76d2f78e4ec79a432a36caeccd1"
+                "reference": "0129aa93e1ccf0f1f05f5c604e21bbdceeac3adc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JotJunior/PHP-Boleto-ZF2/zipball/72f156d70371b76d2f78e4ec79a432a36caeccd1",
-                "reference": "72f156d70371b76d2f78e4ec79a432a36caeccd1",
+                "url": "https://api.github.com/repos/JotJunior/PHP-Boleto-ZF2/zipball/0129aa93e1ccf0f1f05f5c604e21bbdceeac3adc",
+                "reference": "0129aa93e1ccf0f1f05f5c604e21bbdceeac3adc",
                 "shasum": ""
             },
             "require": {
@@ -123,6 +123,10 @@
                 {
                     "name": "João G. Zanon Jr.",
                     "email": "jot@jot.com.br"
+                },
+                {
+                    "name": "Matheus Ferreira Silva",
+                    "email": "santana.matheusferreira@gmail.com"
                 }
             ],
             "description": "Adaptação do BoletoPHP para Zend Framework 2",
@@ -132,7 +136,7 @@
                 "php",
                 "zf2"
             ],
-            "time": "2016-03-11 20:34:51"
+            "time": "2016-10-13 22:41:33"
         },
         {
             "name": "phenx/php-font-lib",
