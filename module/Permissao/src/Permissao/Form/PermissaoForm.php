@@ -17,7 +17,7 @@ class PermissaoForm extends AbstractForm
 
         $objForm->hidden("id")->required(false)->label("Id");
         $objForm->combo("id_perfil", '\Perfil\Service\PerfilService', 'id', 'nm_perfil')->required(false)->label("Selecionar Perfil");
-        $objForm->combo("id_modulo", '\Controller\Service\ControllerService', 'id', 'nm_modulo', 'fetchAllModulos')->required(false)->label("Selecione o Modulo");
+        $objForm->combo("id_modulo", '\Controller\Service\ControllerService', 'id', 'nm_modulo', 'fetchAllModulos')->required(false)->label("Selecione o Módulo");
 
         if (isset($options['acoes'])) {
 
