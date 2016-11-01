@@ -11,8 +11,7 @@ class SimuladoTable extends AbstractEstruturaTable{
         'id_simulado'=>'id', 
         'id_curso'=>'id_curso', 
         'id_usuario'=>'id_usuario', 
-        'ds_simulado'=>'ds_simulado', 
-
+        'ds_simulado'=>'ds_simulado',
     ];
 
 }
