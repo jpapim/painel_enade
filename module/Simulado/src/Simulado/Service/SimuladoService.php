@@ -4,35 +4,38 @@ namespace Simulado\Service;
 
 use \Simulado\Entity\SimuladoEntity as Entity;
 
-class SimuladoService extends Entity{
-    
+class SimuladoService extends Entity
+{
+
     /**
      *
-     * @var type 
+     * @var type
      */
     protected $configList;
 
     /**
      * @param type $configList
      */
-    public function setConfigList($configList) {
+    public function setConfigList($configList)
+    {
         $this->configList = $configList;
     }
-    
+
     /**
-     * 
+     *
      */
-    public function getPaginatorSimulado($filter = NULL, $camposFilter = NULL) {
+    public function getPaginatorSimulado($filter = NULL, $camposFilter = NULL)
+    {
 
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('simulado')->columns([
-                'id_simulado',
-'id_curso',
-'id_usuario',
-'ds_simulado',
+            'id_simulado',
+            'id_curso',
+            'id_usuario',
+            'ds_simulado',
 
-                ]);
+        ]);
 
         $where = [
         ];
