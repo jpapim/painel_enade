@@ -5,10 +5,10 @@ namespace ConteudoSimulado\Service;
 use \ConteudoSimulado\Entity\ConteudoSimuladoEntity as Entity;
 
 class ConteudoSimuladoService extends Entity{
-    
+
     /**
      *
-     * @var type 
+     * @var type
      */
     protected $configList;
 
@@ -18,9 +18,9 @@ class ConteudoSimuladoService extends Entity{
     public function setConfigList($configList) {
         $this->configList = $configList;
     }
-    
+
     /**
-     * 
+     *
      */
     public function getPaginatorConteudoSimulado($filter = NULL, $camposFilter = NULL) {
 
