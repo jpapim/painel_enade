@@ -4,25 +4,25 @@
     <div class="table-responsive">
         <table class="table table-striped" id="tablesorterAluno" >
             <thead>
-            <tr>
-                <th class='text-center'>Nome</th>
-                <th class='text-center'>Matrícula</th>
-                <th class='text-center'>E-mail</th>
-                <th class="text-center">Ações</th>
-            </tr>
+                <tr>
+                    <th class='text-center'>Nome</th>
+                    <th class='text-center'>Matrícula</th>
+                    <th class='text-center'>E-mail</th>
+                    <th class="text-center">Ações</th>
+                </tr>
             </thead>
             <tfoot>
-            <tr>
-                <th class='text-center'>Nome</th>
-                <th class='text-center'>Matrícula</th>
-                <th class='text-center'>E-mail</th>
-                <th class="text-center">Ações</th>
-            </tr>
-            <tr>
-                <th colspan="4" class="ts-pager form-horizontal">
-                    <?php
-                    echo $this->paginationControl(
-                        $paginator, 'Sliding', 'partials/pagination.phtml', [
+                <tr>
+                    <th class='text-center'>Nome</th>
+                    <th class='text-center'>Matrícula</th>
+                    <th class='text-center'>E-mail</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+                <tr>
+                    <th colspan="4" class="ts-pager form-horizontal">
+                        <?php
+                        echo $this->paginationControl(
+                                $paginator, 'Sliding', 'partials/pagination.phtml', [
                             'urlPagination' => '/aluno/index-pagination',
                             'countPerPage' => $countPerPage,
                             'divData' => '#aluno-pagination',

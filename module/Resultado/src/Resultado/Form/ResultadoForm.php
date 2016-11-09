@@ -13,13 +13,12 @@ class ResultadoForm extends AbstractForm{
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('resultadoform',$this,$this->inputFilter);
         $objForm->hidden("id")->required(false)->label("Id");  
-        $objForm->combo("id_aluno", '\Aluno\Service\AlunoService', 'id', 'nm_aluno')->required(true)->label("Aluno");
-        $objForm->combo("id_conteudo_simulado", '\ConteudoSimulado\Service\ConteudoSimuladoService', 'id', 'nr_questao')->required(true)->label("Conteúdo do simulado");
-//        $objForm->text("cs_resposta")->required(false)->label("Classificador de resposta");
 
         $arrOpcoes[] = array('value' => 'S', 'label' => 'Certo');
         $arrOpcoes[] = array('value' => 'N', 'label' => 'Errado');
-        $objForm->radio("cs_resposta", $arrOpcoes)->required(true)->label("Classificar de resposta");
+        $objForm->radio("cs_resposta", $arrOpcoes)->required(false)->label("Classificar de resposta");
+        $objForm->combo("id_aluno", '\Aluno\Service\AlunoService', 'id', 'nm_aluno')->required(false)->label("Aluno");  
+        $objForm->combo("id_conteudo_simulado", '\ConteudoSimulado\Service\ConteudoSimuladoService', 'id', 'nm_conteudo_simulado')->required(false)->label("Conteúdo do simulado");
 
         $this->formObject = $objForm;
     }

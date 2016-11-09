@@ -12,13 +12,14 @@ class TurnoForm extends AbstractForm{
 
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('turnoform',$this,$this->inputFilter);
-        $objForm->hidden("id")->required(false)->label("Id");
 
+		$objForm->hidden("id")->required(false)->label("Id");  
+		
         $arrOpcoes[] = array('value' => '', 'label' => 'Selecione...');
         $arrOpcoes[] = array('value' => 'Matutino', 'label' => 'Matutino');
         $arrOpcoes[] = array('value' => 'Vespertino', 'label' => 'Vespertino');
         $arrOpcoes[] = array('value' => 'Noturno', 'label' => 'Noturno');
-        $objForm->select("nm_turno", $arrOpcoes)->required(true)->label("Turno");
+        $objForm->select("nm_turno", $arrOpcoes)->required(true)->label("Turno");        
 
         $this->formObject = $objForm;
     }
