@@ -4,34 +4,36 @@ namespace Conteudo\Service;
 
 use \Conteudo\Entity\ConteudoEntity as Entity;
 
-class ConteudoService extends Entity{
-    
+class ConteudoService extends Entity
+{
+
     /**
      *
-     * @var type 
+     * @var type
      */
     protected $configList;
 
     /**
      * @param type $configList
      */
-    public function setConfigList($configList) {
+    public function setConfigList($configList)
+    {
         $this->configList = $configList;
     }
-    
+
     /**
-     * 
+     *
      */
-    public function getPaginatorConteudo($filter = NULL, $camposFilter = NULL) {
+    public function getPaginatorConteudo($filter = NULL, $camposFilter = NULL)
+    {
 
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('conteudo')->columns([
-                'id_conteudo',
-'id_disciplina',
-'ds_conteudo',
+            'id_conteudo',
+            'ds_conteudo',
 
-                ]);
+        ])->join('disciplina', 'disciplina.id_disciplina = conteudo.id_disciplina', ['nm_disciplina']);
 
         $where = [
         ];

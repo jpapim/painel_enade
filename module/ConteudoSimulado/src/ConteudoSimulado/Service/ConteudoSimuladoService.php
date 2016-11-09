@@ -4,7 +4,8 @@ namespace ConteudoSimulado\Service;
 
 use \ConteudoSimulado\Entity\ConteudoSimuladoEntity as Entity;
 
-class ConteudoSimuladoService extends Entity{
+class ConteudoSimuladoService extends Entity
+{
 
     /**
      *
@@ -15,25 +16,26 @@ class ConteudoSimuladoService extends Entity{
     /**
      * @param type $configList
      */
-    public function setConfigList($configList) {
+    public function setConfigList($configList)
+    {
         $this->configList = $configList;
     }
 
     /**
      *
      */
-    public function getPaginatorConteudoSimulado($filter = NULL, $camposFilter = NULL) {
+    public function getPaginatorConteudoSimulado($filter = NULL, $camposFilter = NULL)
+    {
 
         $sql = new \Zend\Db\Sql\Sql($this->getAdapter());
 
         $select = $sql->select('conteudo_simulado')->columns([
-                'id_conteudo_simulado',
-'id_conteudo',
-'id_simulado',
-'nr_questao',
-'nr_peso_questao',
+            'id_conteudo_simulado',
+            'nr_questao',
+            'nr_peso_questao',
 
-                ]);
+        ])->join('simulado', 'simulado.id_simulado = conteudo_simulado.id_simulado', ['ds_simulado'])
+          ->join('conteudo', 'conteudo.id_conteudo = conteudo_simulado.id_conteudo', ['ds_conteudo']);
 
         $where = [
         ];
@@ -54,8 +56,8 @@ class ConteudoSimuladoService extends Entity{
             }
         }
 
-        $select->where($where);
-        //$select->order(['<campo> ASC']);
+        $select->where($where)->order(['id_conteudo_simulado DESC']);
+
 
         return new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\DbSelect($select, $this->getAdapter()));
     }

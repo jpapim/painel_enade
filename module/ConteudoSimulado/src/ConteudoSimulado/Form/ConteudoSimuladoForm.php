@@ -13,10 +13,11 @@ class ConteudoSimuladoForm extends AbstractForm{
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('conteudosimuladoform',$this,$this->inputFilter);
         $objForm->hidden("id")->required(false)->label("Id");  
-        $objForm->combo("id_conteudo", '\Conteudo\Service\ConteudoService', 'id', 'nm_conteudo')->required(false)->label("Conteudo");  
-        $objForm->combo("id_simulado", '\Simulado\Service\SimuladoService', 'id', 'nm_simulado')->required(false)->label("Simulado");
-        $objForm->integer("nr_questao")->required(false)->label("Nr questao");
-        $objForm->text("nr_peso_questao")->required(false)->label("Peso questao");
+
+        $objForm->combo("id_conteudo", '\Conteudo\Service\ConteudoService', 'id', 'ds_conteudo')->required(false)->label("Conteúdo");
+        $objForm->combo("id_simulado", '\Simulado\Service\SimuladoService', 'id', 'ds_simulado')->required(false)->label("Simulado");
+        $objForm->integer("nr_questao")->required(false)->label("Número da questão");
+        $objForm->integer("nr_peso_questao")->required(false)->label("Número do peso da questão");
 
         $this->formObject = $objForm;
     }

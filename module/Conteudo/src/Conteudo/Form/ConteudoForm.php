@@ -15,6 +15,7 @@ class ConteudoForm extends AbstractForm{
         $objForm->hidden("id")->required(false)->label("Id");  
         $objForm->combo("id_disciplina", '\Disciplina\Service\DisciplinaService', 'id', 'nm_disciplina')->required(false)->label("Disciplina");  
         $objForm->text("ds_conteudo")->required(false)->label("Nome do conteudo");
+        $objForm->text("ds_conteudo")->required(false)->label("Descrição do conteúdo");
 
         $this->formObject = $objForm;
     }

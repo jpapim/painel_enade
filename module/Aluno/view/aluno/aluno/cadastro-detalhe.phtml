@@ -1,0 +1,148 @@
+<div class="page-head">
+    <h2>Dados do Aluno cadastrado</h2>
+</div>
+<div class="cl-mcont">
+    <div class="row">
+        <div class="block-flat">
+            <div class="content">
+                <?php
+                $form->setAttribute('action', $this->url('navegacao', array('controller' => 'resultado-resultado', 'action' => 'gravar')));
+                $form->setAttribute('class', 'form-horizontal');
+                $form->setAttribute('data-role', 'form');
+                $form->setAttribute('method', 'post');
+                $form->prepare();
+                echo $this->form()->openTag($form);
+                $form->get('id')->setValue(Estrutura\Helpers\Cript::enc($dadosAluno->getId()));
+                $form->get('id_aluno')->setValue($dadosAluno->getId());
+                echo $this->formHidden($form->get('id'));
+                echo $this->formHidden($form->get('id_aluno'));
+                //----------------------
+                //Objetos criados para Recuperar o Nomes e Data pelo ID
+                ##
+                $areaCursoService = new \Curso\Service\CursoService();
+                $obj_curso = $areaCursoService->buscar($dadosAluno->getIdCurso());
+                ##
+                $areaSexoService = new \Sexo\Service\SexoService();
+                $obj_sexo = $areaSexoService->buscar($dadosAluno->getIdSexo());
+
+                //----------------------
+                #xd($dadosAlunos);
+                ?>
+                <div class="bs-callout bs-callout-primary">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><b>Registro nº:</b> <?= $dadosaluno->getId() ?></h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>Aluno:</b> <?= $dadosAluno->getIdAluno() ?>
+                        </div>
+                        <div class="col-md-5">
+                            <b>Sexo:</b> <?= $obj_sexo->getNmSexo() ?>
+                        </div>
+                        <div class="col-md-4">
+                            <b>Area de Conhecimento:</b> <?= $obj_curso->getIdCurso() ?>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <b>Matrícula:</b> <?= $dadosAluno->getNrMatricula() ?>
+                        </div>
+                        <div class="col-md-5">
+                            <b>Email:</b> <?= $dadosAluno->getEmEmail() ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resultado -->
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border" style="font-size: 200%;">Adicionar Resultado</legend>
+                    <div id="mensagem_resultado"></div>
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            <?= $this->formRow($form->get('nr_questão')) ?>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <?= $this->formRow($form->get('cs_resposta')) ?>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="col-md-2">
+                            <a style="margin-top: 25px;" id="adicionar_resultado" class="btn btn-primary" href="#">Adicionar</a>
+                        </div>
+                    </div>
+                    <div class="row" id="listar-resultados"></div>
+                </fieldset>
+                <?= $this->form()->closeTag(); ?>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript"
+        src="/assets/compact-js/moment.js,bootstrap-datetimepicker.min.js,validator.min.js,jquery.mask.min.js,jquery.complexify.js,usuario|usuario|cadastro.js"></script>
+<script type="text/javascript" language="javascript" class="init">
+    $(document).ready(function () {
+        $('#mensagem_resultado').hide();
+        //Função que faz a listagem ser paginada.
+
+        //Função que faz a listagem ser paginada.
+        function carregarResultadoAjax() {
+            $.ajax({
+                type: "post",
+                dataType: "text",
+                cache: false,
+                url: '/aluno-aluno/listar-resultados',
+                async: true,
+                data: {id_aluno: <?=$dadosAluno->getId()?>},
+                beforeSend: function () {
+                    $('#listar-resultados').html(
+                        '<div class="row"><div class="col-md-12 text-center"><p><img src="/assets/img/carregando.gif"><p></div></div>'
+                    );
+                },
+                success: function (data) {
+                    $('#listar-resultados').html(data);
+                }
+            });
+        }
+
+        carregarResultadoAjax(); //Chama a Paginação da listagem
+
+        /*Função Ajax que adiciona os encontros ao Banco de dados*/
+        $('#adicionar_resultado').click(function () {
+            var dados = $('#form').serialize();
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: '/aluno-aluno/adicionar-resultados',
+                async: true,
+                data: dados,
+                success: function (response) {
+                    $('#mensagem_resultado').removeClass("bs-callout bs-callout-danger").addClass("bs-callout bs-callout-success");
+                    $("#nr_questao").val("");
+                    $("#cs_resultado").val("");
+                    if (response.sucesso == true) {
+                        $('#mensagem_resultado').show();
+                        $('#mensagem_resultado').html("<p>Questão adicionada com sucesso!</p>");
+                        carregarResultadoAjax();
+                        setTimeout(function () {
+                            $('#mensagem_resultado').fadeOut('fast'); // "mensagem_resultado" fechará após 3 minutos.
+                        }, 3000); // O valor é representado em milisegundos.
+                    } else {
+                        $('#mensagem_resultado').show();
+                        $('#mensagem_resultado').html("<p>Esta questão já foi adicionado!</p>");
+                        $('#mensagem_resultado').removeClass("bs-callout bs-callout-success").addClass("bs-callout bs-callout-danger");
+                        setTimeout(function () {
+                            $('#mensagem_resultado').fadeOut('fast'); // "mensagem_resultado" fechará após 3 minutos.
+                        }, 3000); // O valor é representado em milisegundos.
+                    }
+                }
+            });
+        });
+
+        //Colocar o foco na questão.
+        $("#nr_questao").focus();
+
+    });
+</script>

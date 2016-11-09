@@ -5,19 +5,21 @@
         <table class="table table-striped" id="tablesorterResultado" >
             <thead>
                 <tr>
-                    <th class='text-center'></th> 
-                                
+                    <th class='text-center'>Nome do Aluno</th>
+                    <th class='text-center'>Número da Questão</th>
+                    <th class='text-center'>Gabarito</th>
                     <th class="text-center">Ações</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <th class='text-center'></th> 
-                                
+                    <th class='text-center'>Nome do Aluno</th>
+                    <th class='text-center'>Número da Questão</th>
+                    <th class='text-center'>Gabarito</th>
                     <th class="text-center">Ações</th>
                 </tr>
                 <tr>
-                    <th colspan="2" class="ts-pager form-horizontal">
+                    <th colspan="4" class="ts-pager form-horizontal">
                         <?php
                         echo $this->paginationControl(
                                 $paginator, 'Sliding', 'partials/pagination.phtml', [
@@ -60,8 +62,17 @@
                     foreach ($paginator as $key => $pagina) {
                         ?>
                         <tr>
-                            <td class="text-center"><?= $pagina['cs_resposta']?></td>
-                                <td class="text-center"><span class="btn-group resultado-acoes-group" style="width: 140px;"><?php
+                            <td class="text-center"><?= \Estrutura\Helpers\String::nomeMaiusculo($pagina['nm_aluno']) ?></td>
+                            <td class="text-center"><?= \Estrutura\Helpers\String::nomeMaiusculo($pagina['nr_questao']) ?></td>
+                            <td class="text-center">
+                                <?php if ($pagina['cs_resposta'] == 'S') {
+                                    echo "Certo";
+                                } elseif ($pagina['cs_resposta'] == 'N') {
+                                    echo "Errado";
+                                } ?>
+                            </td>
+
+                            <td class="text-center"><span class="btn-group resultado-acoes-group" style="width: 140px;"><?php
                         if ($this->layout()->acl->hasResource($controller . '/edita') && 
                         $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/edita')) { 
                         ?><?= \Estrutura\Service\HtmlHelper::botaoAlterar($this->url('navegacao', array('controller' => $controller, 'action' => 'edita', 'id' => Estrutura\Helpers\Cript::enc($pagina['id_resultado'])))) ?><?php

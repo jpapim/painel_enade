@@ -13,7 +13,7 @@ class PerfilForm extends AbstractForm{
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('perfilform',$this,$this->inputFilter);
         $objForm->hidden("id")->required(false)->label("Id");  
-        $objForm->text("nm_perfil")->required(true)->label("Pefil");
+        $objForm->text("nm_perfil")->required(true)->label("Perfil");
 
         $this->formObject = $objForm;
     }

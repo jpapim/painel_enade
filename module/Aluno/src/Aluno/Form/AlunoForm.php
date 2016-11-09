@@ -18,6 +18,9 @@ class AlunoForm extends AbstractForm{
         $objForm->text("nm_aluno")->required(false)->label("Nome aluno");
         $objForm->text("nr_matricula")->required(false)->label("Matricula");
         $objForm->email("em_email")->required(false)->label("email");
+        $objForm->text("nm_aluno")->required(false)->label("Nome do aluno");
+        $objForm->text("nr_matricula")->required(false)->label("Número de matrícula");
+        $objForm->email("em_email")->required(false)->label("E-mail");
 
         $this->formObject = $objForm;
     }

@@ -5,19 +5,23 @@
         <table class="table table-striped" id="tablesorterConteudoSimulado">
             <thead>
             <tr>
-                <th class='text-center'></th>
-
+                <th class='text-center'>Conteúdo</th>
+                <th class='text-center'>Simulado</th>
+                <th class='text-center'>Número da questão</th>
+                <th class='text-center'>Peso da questão</th>
                 <th class="text-center">Ações</th>
             </tr>
             </thead>
             <tfoot>
             <tr>
-                <th class='text-center'></th>
-
+                <th class='text-center'>Conteúdo</th>
+                <th class='text-center'>Simulado</th>
+                <th class='text-center'>Número da questão</th>
+                <th class='text-center'>Peso da questão</th>
                 <th class="text-center">Ações</th>
             </tr>
             <tr>
-                <th colspan="2" class="ts-pager form-horizontal">
+                <th colspan="6" class="ts-pager form-horizontal">
                     <?php
                     echo $this->paginationControl(
                         $paginator, 'Sliding', 'partials/pagination.phtml', [
@@ -62,6 +66,9 @@
                 foreach ($paginator as $key => $pagina) {
                     ?>
                     <tr>
+                        <td class="text-center"><?= $pagina['ds_conteudo'] ?></td>
+                        <td class="text-center"><?= $pagina['ds_simulado'] ?></td>
+                        <td class="text-center"><?= $pagina['nr_questao'] ?></td>
                         <td class="text-center"><?= $pagina['nr_peso_questao'] ?></td>
                         <td class="text-center"><span class="btn-group conteudo-simulado-acoes-group"
                                                       style="width: 140px;"><?php
