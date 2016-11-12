@@ -2,17 +2,17 @@
 <VirtualHost *:80>
     SetEnv APPLICATION_ENV development
     ServerAdmin alyssontkd@gmail.com
-	DocumentRoot "C:/xampp/htdocs/advocacia/public"
-    ServerName dev.advocacia.com.br    
-	<Directory "C:/xampp/htdocs/advocacia/public">
+	DocumentRoot "C:/xampp/htdocs/painel_enade/public"
+    ServerName dev.enade.com.br    
+	<Directory "C:/xampp/htdocs/painel_enade/public">
     Order allow,deny
     Allow from all
   </Directory>
-    ErrorLog "logs/dev.advocacia.com.br_error.log"
+    ErrorLog "logs/dev.enade.com.br_error.log"
     # Possible values include: debug, info, notice, warn, error, crit,
     # alert, emerg.
     LogLevel info
-    CustomLog "logs/dev.advocacia.com.br_access.log" combined
+    CustomLog "logs/dev.enade.com.br_access.log" combined
 </VirtualHost>
 
 
@@ -20,14 +20,14 @@
 <VirtualHost *:80>
     SetEnv APPLICATION_ENV development
     ServerAdmin alyssontkd@gmail.com
-        DocumentRoot /var/www/html/advocacia/public
-    ServerName dev.advocacia.com.br
-        <Directory /var/www/html/advocacia/public>
+        DocumentRoot /var/www/html/painel_enade/public
+    ServerName dev.enade.com.br
+        <Directory /var/www/html/painel_enade/public>
     Order allow,deny
     Allow from all
   </Directory>
-  ErrorLog ${APACHE_LOG_DIR}/dev.advocacia.com.br_error.log.log
-  CustomLog ${APACHE_LOG_DIR}/dev.advocacia.com.br_access.log combined
+  ErrorLog ${APACHE_LOG_DIR}/dev.enade.com.br_error.log.log
+  CustomLog ${APACHE_LOG_DIR}/dev.enade.com.br_access.log combined
     # Possible values include: debug, info, notice, warn, error, crit,
     # alert, emerg.
     LogLevel info
@@ -39,16 +39,16 @@
 	
 	SetEnv APPLICATION_ENV development
 	ServerAdmin alyssontkd@gmail.com
-	DocumentRoot "/var/www/advocacia/public"
-	ServerName dev.advocacia.com.br
+	DocumentRoot "/var/www/painel_enade/public"
+	ServerName dev.enade.com.br
 
-	<Directory "/var/www/advocacia/public">
+	<Directory "/var/www/painel_enade/public">
 	    AllowOverride All
 	    Require all granted
 	</Directory>
 
-	ErrorLog ${APACHE_LOG_DIR}/dev.advocacia.com.br_error.log.log
-	CustomLog ${APACHE_LOG_DIR}/dev.advocacia.com.br_access.log combined
+	ErrorLog ${APACHE_LOG_DIR}/dev.enade.com.br_error.log.log
+	CustomLog ${APACHE_LOG_DIR}/dev.enade.com.br_access.log combined
 	LogLevel info
 </VirtualHost>
 
