@@ -13,13 +13,14 @@ class SimuladoForm extends AbstractForm
         parent::__construct('simuladoform');
 
         $this->inputFilter = new InputFilter();
+
         $objForm = new FormObject('simuladoform', $this, $this->inputFilter);
         $objForm->hidden("id")->required(false)->label("Id");
         $objForm->combo("id_curso", '\Curso\Service\CursoService', 'id', 'nm_curso')->required(false)->label("Curso");
         $objForm->combo("id_usuario", '\Usuario\Service\UsuarioService', 'id', 'nm_usuario')->required(false)->label("Usuário");
-        $objForm->text("ds_simulado")->required(false)->label("Descrição do simulado");
+        $objForm->text("ds_simulado")->required(false)->label("Descrição do Simulado");
 
-        $this->formObject = $objForm;
+        $this->formObject = $objForm; 
     }
 
     public function getInputFilter()

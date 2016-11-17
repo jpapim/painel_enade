@@ -13,8 +13,8 @@ class DisciplinaForm extends AbstractForm{
         $this->inputFilter = new InputFilter();
         $objForm = new FormObject('disciplinaform',$this,$this->inputFilter);
         $objForm->hidden("id")->required(false)->label("Id");  
-        $objForm->combo("id_curso", '\Curso\Service\CursoService', 'id', 'nm_curso')->required(false)->label("Curso");  
-        $objForm->text("nm_disciplina")->required(false)->label("Nome da disciplina");
+        $objForm->combo("id_curso", '\Curso\Service\CursoService', 'id', 'nm_curso')->required(false)->label("Nome do Curso");
+        $objForm->text("nm_disciplina")->required(false)->label("Nome da Disciplina");
 
         $this->formObject = $objForm;
     }
