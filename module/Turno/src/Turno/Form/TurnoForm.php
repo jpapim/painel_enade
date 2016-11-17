@@ -18,8 +18,7 @@ class TurnoForm extends AbstractForm{
         $arrOpcoes[] = array('value' => 'Vespertino', 'label' => 'Vespertino');
         $arrOpcoes[] = array('value' => 'Noturno', 'label' => 'Noturno');
         $objForm->select("nm_turno", $arrOpcoes)->required(false)->label("Nome do Turno");
-        //Foi retirada a linha abaixo para implementação de um select com os turnos.
-        //$objForm->text("nm_turno")->required(false)->label("Nome do turno");
+
         $this->formObject = $objForm;
     }
 

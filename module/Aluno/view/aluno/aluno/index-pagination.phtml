@@ -26,60 +26,60 @@
                             'urlPagination' => '/aluno/index-pagination',
                             'countPerPage' => $countPerPage,
                             'divData' => '#aluno-pagination',
-                                ]
-                        );
-                        ?>  
-                    </th>
-                </tr>
+                        ]
+                    );
+                    ?>
+                </th>
+            </tr>
             </tfoot>
             <?php
             $numeroLinha = (($paginator->getCurrentPageNumber() - 1) * $paginator->getItemCountPerPage());
             if (!empty($paginator)) {
                 ?>
                 <tbody class="">
-                    <tr role="row" class="tablesorter-filter-row">
-                        <?php
-                        foreach ($camposFilter as $key => $campoFilter) {
-                            ?>    
-                            <td>
-                                <?php
-                                if (!is_null($campoFilter)) {
-                                    ?>
-                                    <input type="search" title="Digite um termo para busca" placeholder="" class="tablesorter-filter" data-column="<?= $key ?>" value="<?= isset($filter[$key]) ? $filter[$key] : '' ?>">
-                                    <?php
-                                } else {
-                                    ?>
-                                    &nbsp;                                        
-                                    <?php
-                                }
-                                ?>
-                            </td>
-                            <?php
-                        }
-                        ?>                            
-                    </tr>
+                <tr role="row" class="tablesorter-filter-row">
                     <?php
-                    foreach ($paginator as $key => $pagina) {
+                    foreach ($camposFilter as $key => $campoFilter) {
                         ?>
-                        <tr>
-                            <td class="text-center"><?= $pagina['nm_aluno']?></td>
-                                <td class="text-center"><?= $pagina['nr_matricula']?></td>
-                                <td class="text-center"><?= $pagina['em_email']?></td>
-                                <td class="text-center"><span class="btn-group aluno-acoes-group" style="width: 140px;"><?php
-                        if ($this->layout()->acl->hasResource($controller . '/edita') && 
-                        $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/edita')) { 
-                        ?><?= \Estrutura\Service\HtmlHelper::botaoAlterar($this->url('navegacao', array('controller' => $controller, 'action' => 'edita', 'id' => Estrutura\Helpers\Cript::enc($pagina['id_aluno'])))) ?><?php
-                        } 
-                        ?><?php
-                        if ($this->layout()->acl->hasResource($controller . '/excluir') && 
-                        $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/excluir')) { 
-                        ?><?= \Estrutura\Service\HtmlHelper::botaoExcluirConfirm(Estrutura\Helpers\Cript::enc($pagina['id_aluno'])) ?><?php
-                        } 
-                        ?></span></td>                            
-                        </tr>                    
+                        <td>
+                            <?php
+                            if (!is_null($campoFilter)) {
+                                ?>
+                                <input type="search" title="Digite um termo para busca" placeholder="" class="tablesorter-filter" data-column="<?= $key ?>" value="<?= isset($filter[$key]) ? $filter[$key] : '' ?>">
+                                <?php
+                            } else {
+                                ?>
+                                &nbsp;
+                                <?php
+                            }
+                            ?>
+                        </td>
                         <?php
                     }
                     ?>
+                </tr>
+                <?php
+                foreach ($paginator as $key => $pagina) {
+                    ?>
+                    <tr>
+                        <td class="text-center"><?= $pagina['nm_aluno']?></td>
+                        <td class="text-center"><?= $pagina['nr_matricula']?></td>
+                        <td class="text-center"><?= $pagina['em_email']?></td>
+                        <td class="text-center"><span class="btn-group aluno-acoes-group" style="width: 140px;"><?php
+                                if ($this->layout()->acl->hasResource($controller . '/edita') &&
+                                    $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/edita')) {
+                                    ?><?= \Estrutura\Service\HtmlHelper::botaoAlterar($this->url('navegacao', array('controller' => $controller, 'action' => 'edita', 'id' => Estrutura\Helpers\Cript::enc($pagina['id_aluno'])))) ?><?php
+                                }
+                                ?><?php
+                                if ($this->layout()->acl->hasResource($controller . '/excluir') &&
+                                    $this->layout()->acl->isAllowed($this->layout()->role, $controller . '/excluir')) {
+                                    ?><?= \Estrutura\Service\HtmlHelper::botaoExcluirConfirm(Estrutura\Helpers\Cript::enc($pagina['id_aluno'])) ?><?php
+                                }
+                                ?></span></td>
+                    </tr>
+                    <?php
+                }
+                ?>
                 </tbody>
                 <?php
             }

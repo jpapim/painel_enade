@@ -19,10 +19,6 @@
     </div>
     <div class="block-flat">
         <div class="content">
-            <div class="form-group">
-                <div class="col-md-5">
-                </div>
-            </div>
             <?php
             $form->get('id')->setValue(Estrutura\Helpers\Cript::enc($form->get('id')->getValue())); 
             echo $this->formHidden($form->get('id'));

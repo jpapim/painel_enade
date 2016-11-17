@@ -15,7 +15,7 @@
                     <th class="text-center">Ações</th>
                 </tr>
                 <tr>
-                    <th colspan="2" class="ts-pager form-horizontal">
+                    <th colspan="4" class="ts-pager form-horizontal">
                         <?php
                         echo $this->paginationControl(
                                 $paginator, 'Sliding', 'partials/pagination.phtml', [
@@ -58,6 +58,7 @@
                     foreach ($paginator as $key => $pagina) {
                         ?>
                         <tr>
+                            <td class="text-center"><?= $pagina['id_conteudo']?></td>
                             <td class="text-center"><?= $pagina['ds_conteudo']?></td>
                                 <td class="text-center"><span class="btn-group conteudo-acoes-group" style="width: 140px;"><?php
                         if ($this->layout()->acl->hasResource($controller . '/edita') && 
