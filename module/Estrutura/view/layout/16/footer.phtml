@@ -1,33 +1,61 @@
 <footer>
-    <div class="row">
-        <div class="col-md-2">&nbsp;</div>
-        <div class="col-md-8 text-center">
-            <a href="/application-index/politica-privacidade">Política de Privacidade</a> | 
-            <a href="/application-index/termo-utilizacao">Termos de Utilização do Serviço</a> | 
-            <a href="/application-index/declaracao-seguranca">Declaração de Segurança</a>
-            <br>
-            <br>
-            <a href="<?= $this->Config('dominio') ?>" title="<?= $this->Config('nome_projeto') ?> - <?= $this->Config('slogan') ?>">
-                <img src="/assets/img/logo/logo-menu.png" />
-            </a>
-            <br>
-            <br>
-            <!-- Abre as politicas em forma de Modal.-->
-<!--            <a href="#" data-toggle="modal" data-target="#myModalPoliticas">Política de Privacidade</a> | <a href="#" data-toggle="modal" data-target="#myModalTermos">Termos de Utilização</a> | <a href="#" data-toggle="modal" data-target="#myModalDeclaracao">Declaração de Segurança</a>-->
+    <table align="center" border="0">
+        <tr>
+            <td rowspan="3"><img src="/assets/img/logo/logo-fabrica.jpg" width=" 70px" height="70px"
+                                 align="center"/></td>
+            <td>
+                <div class="col-md-12">
+                    <a href="#" data-toggle="modal" data-target="#myModalPoliticas" style="color:#428BCA">Política de
+                        Privacidade</a> |
+                    <a href="#" data-toggle="modal" data-target="#myModalTermos" style="color:#428BCA">Termos de
+                        Utilização</a> |
+                    <a href="#" data-toggle="modal" data-target="#myModalDeclaracao" style="color:#428BCA">Declaração de
+                        Segurança</a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="col-md-12">
+                    <a href="#" data-toggle="modal" data-target="#myModalProjecao">Um produto desenvolvido pela fabrica
+                        de software do <b><span style="color:#A70D05;
+            font-family: 'Segoe Script'">Uni</span><span style="color:#302F53;
+            font-family: 'cambria'">Projeção</span></a></b></div>
+            </td>
 
-            <p>Copyright©<?= date('Y'); ?> <?= $this->Config('nome_projeto') ?> - <?= $this->Config('slogan') ?></p>
-            <p><?= $this->ConfigService('email_admin') ?> | +55<?= \Estrutura\Helpers\Telefone::telefoneMask($this->ConfigService('telefone_admin')) ?> | <?= \Estrutura\Helpers\Url::urlFilter($this->Config('dominio')) ?></p>
-        </div>
-        <div class="col-md-2">&nbsp;</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <?php $obVersionamento = new \Estrutura\View\Helper\Versionamento(); ?>
-            <div class="versao" style="text-align: center;"><?php echo $obVersionamento->getGitFullVersion() ; ?></div>
-        </div>
-    </div>
-    <br>    
+        </tr>
+        <tr>
+            <td>
+                <div class="col-md-12"><?php $obVersionamento = new \Estrutura\View\Helper\Versionamento(); ?>
+                    <div class="versao"><?php echo $obVersionamento->getGitFullVersion(); ?></div>
+                </div>
+            </td>
+        </tr>
+
+
+    </table>
+    <br>
 </footer>
+<!-- Modal -->
+<div class="modal fade" id="myModalProjecao" tabindex="-1" role="dialog" aria-labelledby="myModalProjecaoLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalProjecaoLabel">Fábrica de Software</h4>
+            </div>
+            <div class="modal-body">
+
+                <h3> A fábrica </h3>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Modal -->
