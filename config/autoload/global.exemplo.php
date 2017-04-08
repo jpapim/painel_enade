@@ -7,9 +7,9 @@ return [
             array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone = '-2:00'"),
         'charset' => 'utf8',
     ],
-    'nome_projeto' => 'Controle Smart',
-    'slogan' => 'Estoque On-line',
-    'tema' => 8,
+    'nome_projeto' => 'Painel ENADE',
+    'slogan' => 'Controle do ENADE',
+    'tema' => 4,
     'general' => [
         'arquivos' => BASE_PATCH . '/data/arquivos/',
         'cache_sys' => BASE_PATCH . '/data/cache/',
